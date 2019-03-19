@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="customFilters">
+<head>
+  <meta charset="utf-8">
+  <title>Tutorial AngularJs - Filtros Personalizados</title>
+  <script type="text/javascript" src="static/js/angularjs/1.7.7/angular.min.js"></script>
+</head>
+<body>
+
+  <h1>Custom Filters</h1>
+
+  <p>{{ "dinosaurios" | cambiar:"@":"a" }}</p>
+  <p>{{ "dinosaurios" | cambiar:"F":"i" }}</p>
+
+  <script type="text/javascript">
+
+    var customFilters = angular.module('customFilters', []);
+
+    customFilters.filter('cambiar', function() {
+
+      var cambiarFiltro = function(datosOriginales, nuevoValor, letraReemplazar) {
+        var newStg = datosOriginales.replace(RegExp(letraReemplazar, "g"), nuevoValor);
+        return newStg;
+      };
+      return cambiarFiltro;
+
+    });
+
+  </script>
+
+</body>
+</html>

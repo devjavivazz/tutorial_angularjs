@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Tutorial AngularJs - Directiva Personalizada</title>
+  <script type="text/javascript" src="static/js/angularjs/1.7.7/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+
+<h3>Desde Attr</h3>
+<p directiveuser name="Javi" lastname="Vazz"></p>
+
+<h3>Desde Class</h3>
+<p class="directiveuser" name="Javi" lastname="Vazz"></p>
+
+<h3>Desde Tag (etiqueta)</h3>
+<directiveuser name="Javi" lastname="Vazz"></directiveuser>
+
+<script type="text/javascript">
+
+  var myApp = angular.module('myApp', []);
+
+  myApp.directive('directiveuser', function(){
+    var valoresInternos = {};
+
+    // Si no declaramos "restrict", la directiva puede ser llamada a través de atributo o etiqueta
+    // valoresInternos.restrict = "A"; // llamar directiva sólo a través de un atributo en cualquier elemento
+    valoresInternos.restrict = "C"; // llamar directiva sólo a través de una clase (class)
+    // valoresInternos.restrict = "E"; // llamar directiva sólo a través de una etiqueta llamada con el mismo nombre de la directiva
+
+    valoresInternos.scope = {
+      nombreUsuario: '@name',
+      apellidoUsuario: '@lastname'
+    }
+    valoresInternos.template = "Welcome {{ nombreUsuario }} {{ apellidoUsuario }}";
+    return valoresInternos;
+  });
+
+</script>
+
+</body>
+</html>

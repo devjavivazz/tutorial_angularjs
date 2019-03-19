@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <title>Tutorial AngularJs - Controller Con Métodos</title>
+  <script type="text/javascript" src="static/js/angularjs/1.7.7/angular.min.js"></script>
+</head>
+<body>
+
+  <div ng-controller="myController">
+    <input type="number" ng-model="value1">
+    <input type="number" ng-model="value2">
+    <button ng-click="sumar()">Sumar</button>
+    <button ng-click="multiplicar()">Multiplicar</button>
+    <hr>
+    <p>Total {{ result }}</p>
+  </div>
+
+  <script type="text/javascript">
+
+    var myApp = angular.module('myApp', []);
+
+    myApp.controller('myController', function($scope){
+
+      // values
+      $scope.value1 = 0;
+      $scope.value2 = 0;
+
+      // sumar
+      $scope.sumar = function() {
+        $scope.result = $scope.value1 + $scope.value2;
+      }
+
+      // multiplicar
+      $scope.multiplicar = function() {
+        $scope.result = $scope.value1 * $scope.value2;
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>

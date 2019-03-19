@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="fechas">
+<head>
+  <meta charset="utf-8">
+  <title>Tutorial AngularJs - Fechas</title>
+  <script type="text/javascript" src="static/js/angularjs/1.7.7/angular.min.js"></script>
+</head>
+<body>
+
+  <h1>Fechas</h1>
+
+  <p>{{ '1442439719756' | date }}</p>
+  <p>{{ '1442439719756' | date:'dd-MM-yy' }}</p>
+  <p>{{ '1442439719756' | date:'yyyy-MM-dd' }}</p>
+  <p>{{ '1442439719756' | date:'fullDate' }}</p>
+  <p>{{ '1442439719756' | date:'fullDate' | uppercase }}</p>
+  <p>{{ '1442439719756' | date:'yyyy-MM-dd HH:mm:ss'  }}</p>
+
+  <script type="text/javascript">
+
+    var fechas = angular.module('fechas', []);
+
+  </script>
+
+</body>
+</html>

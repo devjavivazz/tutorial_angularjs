@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <title>Tutorial AngularJs - Controller</title>
+  <script type="text/javascript" src="static/js/angularjs/1.7.7/angular.min.js"></script>
+</head>
+<body>
+
+  <div ng-controller="myController">
+    {{ greating }}
+  </div>
+
+  <div ng-controller="mySecondController">
+    {{ color }}
+  </div>
+
+
+  <script type="text/javascript">
+
+    var myApp = angular.module('myApp', []);
+
+    myApp.controller('myController', function($scope){
+      var greating = "Hello Controller";
+      $scope.greating = greating;
+    });
+
+    myApp.controller('mySecondController', function($scope){
+      $scope.color = "Red";
+    });
+
+  </script>
+
+</body>
+</html>

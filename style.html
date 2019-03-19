@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Tutorial AngularJs - Intro</title>
+  <script type="text/javascript" src="static/js/angularjs/1.7.7/angular.min.js"></script>
+  <style media="screen">
+    img { display:block; margin:auto; }
+    .logo { max-height:100px; }
+    .background-blue { background:#312479; color:#fff; }
+    .preguntas {
+      width:400px;
+      margin:30px auto;
+      background:silver;
+      padding:20px;
+      text-align:center;
+    }
+  </style>
+</head>
+<body ng-app="myStyle">
+
+<div ng-controller="myController">
+
+  <div ng-switch="optionImage">
+    <center>
+      <img ng-src="{{ imgActive }}" alt="" class="logo">
+      <h3 ng-switch-when="a">Imagen 1</h3>
+      <h3 ng-switch-when="b">Imagen 2</h3>
+    </center>
+  </div>
+
+  <div ng-hide="hideImage">
+    <img src="static/img/logo.png" alt="" class="logo">
+  </div>
+
+  <div class="preguntas" ng-style="stylesAngular" ng-class="classBlue">
+    <button ng-click="optionA()">Option A</button>
+    <button ng-click="optionB()">Option B</button>
+    <hr>
+    <button ng-click="changeStyle()">Change Style</button>
+    <button ng-click="changeClass()">Change Class</button>
+    <hr>
+    <button ng-click="hideElement()">Hide Element</button>
+    <button ng-click="showElement()">Show Element</button>
+  </div>
+</div>
+
+<script type="text/javascript">
+  var myStyle = angular.module('myStyle', []);
+  myStyle.controller('myController', function($scope) {
+
+    // image default
+    $scope.imgActive = 'static/img/logo.png';
+
+    // option A
+    $scope.optionA = function() {
+      $scope.optionImage = 'a';
+      $scope.imgActive = 'static/img/logo.png';
+    }
+    // option B
+    $scope.optionB = function() {
+      $scope.optionImage = 'b';
+      $scope.imgActive = 'static/img/logo2.png';
+    }
+    // changeStyle
+    $scope.changeStyle = function() {
+      $scope.stylesAngular = {
+        width:'600px',
+        height:'200px',
+        borderRadius:'10px',
+      }
+    }
+    // changeClass
+    $scope.changeClass = function() {
+      $scope.classBlue = 'background-blue';
+    }
+    // hideElement
+    $scope.hideElement = function() {
+      $scope.hideImage = true;
+    }
+    // showElement
+    $scope.showElement = function() {
+      $scope.hideImage = false;
+    }
+
+  });
+</script>
+</body>
+</html>

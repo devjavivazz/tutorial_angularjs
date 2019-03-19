@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <title>Tutorial AngularJs - Eventos</title>
+  <script type="text/javascript" src="static/js/angularjs/1.7.7/angular.min.js"></script>
+</head>
+<body>
+
+  <div ng-controller="myController">
+    <button ng-click="greatings()">Click</button>
+    <p ng-click="greatings()">También tiene evento click</p>
+    <b>{{ countClicks }}</b>
+  </div>
+
+
+  <script type="text/javascript">
+
+    var myApp = angular.module('myApp', []);
+
+    myApp.controller('myController', function($scope){
+
+      $scope.countClicks = 0;
+      $scope.greatings = function() {
+        $scope.countClicks++;
+      }
+    });
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="objectos">
+<head>
+  <meta charset="utf-8">
+  <title>Tutorial AngularJs - Objects</title>
+  <script type="text/javascript" src="static/js/angularjs/1.7.7/angular.min.js"></script>
+</head>
+<body>
+  <h1>Books</h1>
+  <div ng-controller="BookController">
+    <p><b>Author:</b> {{ book.author }}</p>
+    <p><b>Title:</b> {{ book.title }}</p>
+    <p><b>Editorial:</b> {{ book.editorial }}</p>
+  </div>
+
+
+  <script type="text/javascript">
+
+    var objectos = angular.module('objectos', []);
+
+    objectos.controller('BookController', function($scope){
+
+      $scope.book = {};
+      $scope.book.author = 'Pedro Gzz';
+      $scope.book.title = 'Historias del mar';
+      $scope.book.editorial = 'Milenio';
+
+    });
+
+  </script>
+
+</body>
+</html>

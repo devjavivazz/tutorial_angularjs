@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="filtros">
+<head>
+  <meta charset="utf-8">
+  <title>Tutorial AngularJs - Filters</title>
+  <script type="text/javascript" src="static/js/angularjs/1.7.7/angular.min.js"></script>
+</head>
+<body>
+
+  <h1>My Store</h1>
+
+  <h3>Jeans Blue</h3>
+  <hr>
+  <p><b>Price:</b> {{ 15 | currency:"USD $" }} </p>
+  <p><b>Price:</b> {{ 12 | currency:"€" }} </p>
+
+  <p>{{ "PROCEDENCIA" | lowercase }}</p>
+  <ul>
+    <li>{{ "china" | uppercase }}</li>
+    <li>{{ "Estados Unidos" | uppercase }}</li>
+    <li>{{ "México" | uppercase }}</li>
+    <li>{{ "España" | uppercase }}</li>
+    <li>{{ "Colombia" | uppercase }}</li>
+  </ul>
+
+  <p>Nivel de venta del vendedor: {{ 92.65632789 | number:2 }}</p>
+  <p>Stock: {{ true | number }}</p>
+
+  <script type="text/javascript">
+
+    var filtros = angular.module('filtros', []);
+
+
+  </script>
+
+</body>
+</html>

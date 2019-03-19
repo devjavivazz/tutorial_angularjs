@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="MyAppfiltrarDatos">
+<head>
+  <meta charset="utf-8">
+  <title>Tutorial AngularJs - Filtros Personalizados</title>
+  <script type="text/javascript" src="static/js/angularjs/1.7.7/angular.min.js"></script>
+</head>
+<body>
+
+  <h1>Filter Data Fruits</h1>
+
+  <input type="text" ng-model="searchFruit" placeholder="Search Fruit">
+  <div ng-controller="FruitController">
+    <ul>
+      <li ng-repeat=" f in frutas | filter:searchFruit | orderBy:'+name' ">
+        <h3>{{ f.name }}</h3>
+        <p>
+          <b>Color:</b> {{ f.color | uppercase }},
+          <b>Property:</b> {{ f.property }}
+        </p>
+      </li>
+    </ul>
+  </div>
+
+  <script type="text/javascript">
+    var MyAppfiltrarDatos = angular.module('MyAppfiltrarDatos', []);
+
+    MyAppfiltrarDatos.controller('FruitController', function($scope) {
+      $scope.frutas = [
+        {
+          name: 'Apple',
+          color: 'green',
+          property: 'Vitamin C',
+        },
+        {
+          name: 'Orange',
+          color: 'orange',
+          property: 'Vitamin O',
+        },
+        {
+          name: 'Strawberry',
+          color: 'red',
+          property: 'Vitamin S',
+        },
+        {
+          name: 'Berry',
+          color: 'blue',
+          property: 'Vitamin B',
+        },
+      ];
+    });
+  </script>
+
+</body>
+</html>
